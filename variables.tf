@@ -36,7 +36,6 @@ variable "managedby" {
   description = "ManagedBy, eg 'CloudDrove'."
 }
 
-
 variable "enabled_standards" {
   description = <<-DOC
     The possible values are:
@@ -49,8 +48,34 @@ variable "enabled_standards" {
   default     = []
 }
 
+variable "enabled_products" {
+  description = <<-DOC
+    The possible values are:
+
+    - product/aws/guardduty
+    - product/aws/inspector
+    - product/aws/macie
+  DOC
+  type        = list(any)
+  default     = []
+}
+
 variable "security_hub_enabled" {
-    type = bool 
-    default = true
-  
+  type    = bool
+  default = true
+
+}
+variable "member_account_id" {
+  type    = string
+  default = ""
+}
+
+variable "member_mail_id" {
+  type    = string
+  default = ""
+}
+
+variable "enable_member_account" {
+  type    = bool
+  default = false
 }
