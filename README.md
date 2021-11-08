@@ -73,9 +73,9 @@ Here is an example of how you can use this module in your inventory structure:
 ```hcl
 # use this
   module "security_hub" {
-    source        = "clouddrove/security-hub/aws"
-    version       = "0.15.0"
-   name                 = "test"
+  source               = "clouddrove/security-hub/aws"
+  version              = "0.15.0"
+  name                 = "test"
   security_hub_enabled = true
 
   #member account add
