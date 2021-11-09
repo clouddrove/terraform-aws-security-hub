@@ -38,28 +38,28 @@ usage: |-
   Here is an example of how you can use this module in your inventory structure:
   ```hcl
   # use this
-    module "security_hub" {
+      module "security_hub" {
       source        = "clouddrove/security-hub/aws"
       version       = "0.15.0"
       name          = "security-hub"
       security_hub_enabled = true
 
-  #member account add
-  enable_member_account = true
-  member_account_id     = "123344847783"
-  member_mail_id        = "example@mail.com"
+      #member account add
+      enable_member_account = true
+      member_account_id     = "123344847783"
+      member_mail_id        = "example@mail.com"
 
-  #standards 
-  enabled_standards = [
-    "standards/aws-foundational-security-best-practices/v/1.0.0",
-    "ruleset/cis-aws-foundations-benchmark/v/1.2.0"
-  ]
-  #products
-  enabled_products = [
-    "product/aws/guardduty",
-    "product/aws/inspector",
-    "product/aws/macie"
-  ]
-}
+      #standards 
+      enabled_standards = [
+      "standards/aws-foundational-security-best-practices/v/1.0.0",
+      "ruleset/cis-aws-foundations-benchmark/v/1.2.0"
+      ]
+      #products
+      enabled_products = [
+      "product/aws/guardduty",
+      "product/aws/inspector",
+      "product/aws/macie"
+      ]
+      }
     
   ```
