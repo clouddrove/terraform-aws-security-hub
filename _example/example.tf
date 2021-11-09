@@ -11,7 +11,7 @@ module "security-hub" {
   #member account add
   enable_member_account = true
   member_account_id     = "123344847783"
-  member_mail_id        = "example@mail.com"
+  member_mail_id        = "hello@clouddrove.com"
 
   #standards 
   enabled_standards = [
