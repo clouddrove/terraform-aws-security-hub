@@ -8,7 +8,7 @@
 </h1>
 
 <p align="center" style="font-size: 1.2rem;"> 
-    This terraform module creates security-hub.
+    This terraform module creates set of Security hub.
      </p>
 
 <p align="center">
@@ -27,10 +27,10 @@
 <a href='https://facebook.com/sharer/sharer.php?u=https://github.com/clouddrove/terraform-aws-security-hub'>
   <img title="Share on Facebook" src="https://user-images.githubusercontent.com/50652676/62817743-4f64cb80-bb59-11e9-90c7-b057252ded50.png" />
 </a>
-<a href='https://www.linkedin.com/shareArticle?mini=true&title=Terraform+AWS+Security+hub&url=https://github.com/clouddrove/terraform-aws-security-hub'>
+<a href='https://www.linkedin.com/shareArticle?mini=true&title=Terraform+AWS+Security+Hub&url=https://github.com/clouddrove/terraform-aws-security-hub'>
   <img title="Share on LinkedIn" src="https://user-images.githubusercontent.com/50652676/62817742-4e339e80-bb59-11e9-87b9-a1f68cae1049.png" />
 </a>
-<a href='https://twitter.com/intent/tweet/?text=Terraform+AWS+Security+hub&url=https://github.com/clouddrove/terraform-aws-security-hub'>
+<a href='https://twitter.com/intent/tweet/?text=Terraform+AWS+Security+Hub&url=https://github.com/clouddrove/terraform-aws-security-hub'>
   <img title="Share on Twitter" src="https://user-images.githubusercontent.com/50652676/62817740-4c69db00-bb59-11e9-8a79-3580fbbf6d5c.png" />
 </a>
 
@@ -51,7 +51,7 @@ We have [*fifty plus terraform modules*][terraform_modules]. A few of them are c
 
 This module has a few dependencies: 
 
-- [Terraform 0.13](https://learn.hashicorp.com/terraform/getting-started/install.html)
+- [Terraform 0.15](https://learn.hashicorp.com/terraform/getting-started/install.html)
 - [Go](https://golang.org/doc/install)
 - [github.com/stretchr/testify/assert](https://github.com/stretchr/testify)
 - [github.com/gruntwork-io/terratest/modules/terraform](https://github.com/gruntwork-io/terratest)
@@ -72,29 +72,30 @@ This module has a few dependencies:
 Here is an example of how you can use this module in your inventory structure:
 ```hcl
 # use this
-  module "security_hub" {
-  source               = "clouddrove/security-hub/aws"
-  version              = "0.15.0"
-  name                 = "test"
-  security_hub_enabled = true
+    module "security_hub" {
+    source        = "clouddrove/security-hub/aws"
+    version       = "0.15.0"
+    name          = "security-hub"
+    security_hub_enabled = true
 
-  #member account add
-  enable_member_account = true
-  member_account_id     = "123344847783"
-  member_mail_id        = "example@mail.com"
+    #member account add
+    enable_member_account = true
+    member_account_id     = "123344847783"
+    member_mail_id        = "example@mail.com"
 
-  #standards 
-  enabled_standards = [
+    #standards 
+    enabled_standards = [
     "standards/aws-foundational-security-best-practices/v/1.0.0",
     "ruleset/cis-aws-foundations-benchmark/v/1.2.0"
-  ]
-  #products
-  enabled_products = [
+    ]
+    #products
+    enabled_products = [
     "product/aws/guardduty",
     "product/aws/inspector",
     "product/aws/macie"
-  ]
-}
+    ]
+    }
+  
 ```
 
 
@@ -106,23 +107,26 @@ Here is an example of how you can use this module in your inventory structure:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| name | name of module. | `string` | `"test"` | yes |
-| security\_hub\_enabled | set true to enable. | `bool` | `true` | yes |
-| enable\_member\_account | set true to enable. | `bool` | `true` | yes |
-| member\_account\_id | Member account id. | `"string"` | `12347584` | yes |
-| member\_mail\_id | mail id for member account. | `"string"` | `example@mail.com` | yes |
-| enabled\_standards | List of standard | `list(any)` | `[]` | yes |
-| enabled\_products | List of product | `list(any)` | `[]` | yes |
+| enable\_member\_account | n/a | `bool` | `false` | no |
+| enabled\_products | The possible values are:<br><br>- product/aws/guardduty<br>- product/aws/inspector<br>- product/aws/macie | `list(any)` | `[]` | no |
+| enabled\_standards | The possible values are:<br><br>- standards/aws-foundational-security-best-practices/v/1.0.0<br>- ruleset/cis-aws-foundations-benchmark/v/1.2.0<br>- standards/pci-dss/v/3.2.1 | `list(any)` | `[]` | no |
+| environment | Environment (e.g. `prod`, `dev`, `staging`). | `string` | `""` | no |
 | label\_order | Label order, e.g. `name`,`application`. | `list(any)` | `[]` | no |
 | managedby | ManagedBy, eg 'CloudDrove'. | `string` | `"hello@clouddrove.com"` | no |
-| name | Name  (e.g. `app` or `cluster`). | `string` | `""` | no |
+| member\_account\_id | n/a | `string` | `""` | no |
+| member\_mail\_id | n/a | `string` | `""` | no |
+| name | Name  (e.g. `app` or `cluster`). | `string` | n/a | yes |
+| repository | Terraform current module repo | `string` | `"https://github.com/clouddrove/terraform-aws-security-hub"` | no |
+| security\_hub\_enabled | n/a | `bool` | `true` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| security\_hub\_ids | IDs on the AWS Security hubs associated with the instance. |
-| tags | A mapping of public tags to assign to the resource. |
+| id | The ID of the secuirty hub. |
+
+
+
 
 ## Testing
 In this module testing is performed with [terratest](https://github.com/gruntwork-io/terratest) and it creates a small piece of infrastructure, matches the output like ARN, ID and Tags name etc and destroy infrastructure in your AWS account. This testing is written in GO, so you need a [GO environment](https://golang.org/doc/install) in your system. 
