@@ -113,7 +113,6 @@ Here is an example of how you can use this module in your inventory structure:
 | enabled\_standards | The possible values are:<br>- standards/aws-foundational-security-best-practices/v/1.0.0<br>- ruleset/cis-aws-foundations-benchmark/v/1.2.0<br>- standards/pci-dss/v/3.2.1 | `list(any)` | `[]` | no |
 | member\_account\_id | The ID of the member AWS account. | `string` | `""` | no |
 | member\_mail\_id | The email of the member AWS account. | `string` | `""` | no |
-| name | Name  (e.g. `app` or `cluster`). | `string` | n/a | yes |
 | security\_hub\_enabled | To Enable seucirty-hub in aws account | `bool` | `true` | no |
 
 ## Outputs
