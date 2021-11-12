@@ -1,4 +1,7 @@
-
+variable "name" {
+  type        = string
+  description = "Name  (e.g. `app` or `cluster`)."
+}
 
 variable "enabled_standards" {
   description = <<-DOC
