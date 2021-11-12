@@ -111,13 +111,9 @@ Here is an example of how you can use this module in your inventory structure:
 | enable\_member\_account | To create member account | `bool` | `false` | no |
 | enabled\_products | The possible values are:<br>- product/aws/guardduty<br>- product/aws/inspector<br>- product/aws/macie | `list(any)` | `[]` | no |
 | enabled\_standards | The possible values are:<br>- standards/aws-foundational-security-best-practices/v/1.0.0<br>- ruleset/cis-aws-foundations-benchmark/v/1.2.0<br>- standards/pci-dss/v/3.2.1 | `list(any)` | `[]` | no |
-| environment | Environment (e.g. `prod`, `dev`, `staging`). | `string` | `""` | no |
-| label\_order | Label order, e.g. `name`,`application`. | `list(any)` | `[]` | no |
-| managedby | ManagedBy, eg 'CloudDrove'. | `string` | `"hello@clouddrove.com"` | no |
 | member\_account\_id | The ID of the member AWS account. | `string` | `""` | no |
 | member\_mail\_id | The email of the member AWS account. | `string` | `""` | no |
 | name | Name  (e.g. `app` or `cluster`). | `string` | n/a | yes |
-| repository | Terraform current module repo | `string` | `"https://github.com/clouddrove/terraform-aws-security-hub"` | no |
 | security\_hub\_enabled | To Enable seucirty-hub in aws account | `bool` | `true` | no |
 
 ## Outputs
