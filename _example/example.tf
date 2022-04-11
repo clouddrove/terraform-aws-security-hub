@@ -5,8 +5,8 @@ provider "aws" {
 module "security-hub" {
   source = "../"
 
-  name                 = "test"
-  security_hub_enabled = true
+#  name                 = "test"
+ security_hub_enabled = true
 
   #member account add
   enable_member_account = true
