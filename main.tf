@@ -38,3 +38,4 @@ resource "aws_securityhub_member" "example" {
   email      = var.member_mail_id
   invite     = true
 }
+
