@@ -41,6 +41,13 @@ variable "enable_member_account" {
   type        = bool
   default     = false
   description = "To create member account "
+
+variable "name" {
+  type        = string
+  default     = ""
+  description = "username."
+}
+
 }
 
 variable "enable" {
