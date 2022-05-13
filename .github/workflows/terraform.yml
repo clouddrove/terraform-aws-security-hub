@@ -55,7 +55,6 @@ jobs:
           terraform init
           terraform validate
           
-
       - name: tflint
         uses: reviewdog/action-tflint@master
         with:
