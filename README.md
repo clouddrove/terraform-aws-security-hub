@@ -14,10 +14,16 @@
 <p align="center">
 
 <a href="https://www.terraform.io">
-  <img src="https://img.shields.io/badge/terraform-v0.15-green" alt="Terraform">
+  <img src="https://img.shields.io/badge/Terraform-v1.1.7-green" alt="Terraform">
 </a>
 <a href="LICENSE.md">
-  <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="Licence">
+  <img src="https://img.shields.io/badge/License-APACHE-blue.svg" alt="Licence">
+</a>
+<a href="https://github.com/clouddrove/terraform-aws-security-hub/actions/workflows/tfsec.yml">
+  <img src="https://github.com/clouddrove/terraform-aws-security-hub/actions/workflows/tfsec.yml/badge.svg" alt="tfsec">
+</a>
+<a href="https://github.com/clouddrove/terraform-aws-security-hub/actions/workflows/terraform.yml">
+  <img src="https://github.com/clouddrove/terraform-aws-security-hub/actions/workflows/terraform.yml/badge.svg" alt="static-checks">
 </a>
 
 
@@ -51,7 +57,7 @@ We have [*fifty plus terraform modules*][terraform_modules]. A few of them are c
 
 This module has a few dependencies: 
 
-- [Terraform 0.15](https://learn.hashicorp.com/terraform/getting-started/install.html)
+- [Terraform 1.x.x](https://learn.hashicorp.com/terraform/getting-started/install.html)
 - [Go](https://golang.org/doc/install)
 - [github.com/stretchr/testify/assert](https://github.com/stretchr/testify)
 - [github.com/gruntwork-io/terratest/modules/terraform](https://github.com/gruntwork-io/terratest)
@@ -74,7 +80,7 @@ Here is an example of how you can use this module in your inventory structure:
 # use this
     module "security_hub" {
     source        = "clouddrove/security-hub/aws"
-    version       = "0.15.0"
+    version       = "1.0.1"
     name          = "security-hub"
     security_hub_enabled = true
 
@@ -113,6 +119,7 @@ Here is an example of how you can use this module in your inventory structure:
 | enabled\_standards | The possible values are:<br>- standards/aws-foundational-security-best-practices/v/1.0.0<br>- ruleset/cis-aws-foundations-benchmark/v/1.2.0<br>- standards/pci-dss/v/3.2.1 | `list(any)` | `[]` | no |
 | member\_account\_id | The ID of the member AWS account. | `string` | `""` | no |
 | member\_mail\_id | The email of the member AWS account. | `string` | `""` | no |
+| name | n/a | `string` | `""` | no |
 | security\_hub\_enabled | To Enable seucirty-hub in aws account | `bool` | `true` | no |
 
 ## Outputs
