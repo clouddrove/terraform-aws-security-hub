@@ -42,11 +42,7 @@ variable "enable_member_account" {
   default     = false
   description = "To create member account "
 
-variable "name" {
-  type        = string
-  default     = ""
-  description = "username."
-}
+
 
 }
 
@@ -56,3 +52,8 @@ variable "enable" {
   description = "Set to false to prevent the module from creating any resources."
 }
 
+variable "name" {
+  type = string
+  default = ""
+  
+}
