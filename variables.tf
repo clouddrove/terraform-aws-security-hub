@@ -1,15 +1,3 @@
-variable "enable_organization" {
-  description = "To enable the delagated feature for the organization."
-  type        = bool
-  default     = false
-}
-
-variable "delegated_account_id" {
-  description = "Acconut id of the dalegated user."
-  type        = string
-  default     = null
-}
-
 variable "enable_default_standards" {
   description = "Flag to indicate whether default standards should be enabled"
   type        = bool
@@ -75,12 +63,6 @@ variable "member_details" {
     invite     = bool
   }))
   default = []
-}
-
-variable "enable_member_account" {
-  type        = bool
-  default     = false
-  description = "To create member account "
 }
 
 variable "enable" {
