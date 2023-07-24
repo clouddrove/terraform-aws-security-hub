@@ -12,7 +12,7 @@ module "security-hub" {
   enable_member_account = true
   member_details = [
     {
-      account_id = "560633484280"
+      account_id = "1122334466"
       mail_id    = "hello@clouddrove.com"
       invite     = true
     },
