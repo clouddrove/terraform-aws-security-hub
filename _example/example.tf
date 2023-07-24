@@ -9,7 +9,6 @@ module "security-hub" {
   security_hub_enabled = true
 
   #member account add
-  enable_member_account = true
   member_details = [
     {
       account_id = "1122334466"
