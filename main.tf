@@ -14,7 +14,10 @@ locals {
 }
 
 resource "aws_securityhub_account" "security_hub" {
-  count = var.security_hub_enabled && var.enable ? 1 : 0
+  count                     = var.security_hub_enabled && var.enable ? 1 : 0
+  enable_default_standards  = var.enable_default_standards
+  control_finding_generator = var.control_finding_generator
+  auto_enable_controls      = var.auto_enable_controls
 }
 
 resource "aws_securityhub_standards_subscription" "standards" {
@@ -31,10 +34,12 @@ resource "aws_securityhub_product_subscription" "products" {
 
 # To enable add member account to security-hub. 
 resource "aws_securityhub_member" "example" {
-  count = var.enable_member_account && var.enable ? 1 : 0
+  for_each   = { for member in var.member_details : member.account_id => member }
+  account_id = each.value.account_id
+  email      = each.value.mail_id
+  invite     = each.value.invite
 
-  depends_on = [aws_securityhub_account.security_hub]
-  account_id = var.member_account_id
-  email      = var.member_mail_id
-  invite     = true
+  depends_on = [
+    aws_securityhub_account.security_hub
+  ]
 }

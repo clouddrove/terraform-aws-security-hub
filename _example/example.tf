@@ -10,14 +10,25 @@ module "security-hub" {
 
   #member account add
   enable_member_account = true
-  member_account_id     = "123344847783"
-  member_mail_id        = "hello@clouddrove.com"
+  member_details = [
+    {
+      account_id = "560633484280"
+      mail_id    = "hello@clouddrove.com"
+      invite     = true
+    },
+    {
+      account_id = "1122334455"
+      mail_id    = "temp@clouddrove.com"
+      invite     = true
+    }
+  ]
 
   #standards 
   enabled_standards = [
     "standards/aws-foundational-security-best-practices/v/1.0.0",
     "ruleset/cis-aws-foundations-benchmark/v/1.2.0"
   ]
+
   #products
   enabled_products = [
     "product/aws/guardduty",
