@@ -62,7 +62,7 @@ usage: |-
       member_account_id     = "123344847783"
       member_mail_id        = "example@mail.com"
 
-      #standards 
+      #standards
       enabled_standards = [
       "standards/aws-foundational-security-best-practices/v/1.0.0",
       "ruleset/cis-aws-foundations-benchmark/v/1.2.0"
@@ -74,5 +74,5 @@ usage: |-
       "product/aws/macie"
       ]
       }
-    
+
   ```
