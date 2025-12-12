@@ -11,15 +11,15 @@ module "security-hub" {
   #member account add
   member_details = [
     {
-      account_id = "924144197303"
+      account_id = "111122223333"
       mail_id    = "hello@clouddrove.com"
       invite     = true
     },
-    # {
-    #   account_id = "924144197303"
-    #   mail_id    = "temp@clouddrove.com"
-    #   invite     = true
-    # }
+    {
+      account_id = "111122223333"
+      mail_id    = "temp@clouddrove.com"
+      invite     = true
+    }
   ]
 
   #standards 
@@ -34,8 +34,6 @@ module "security-hub" {
 
   #products
   enabled_products = [
-    "product/aws/guardduty",
-    "product/aws/inspector",
-    "product/aws/macie"
+    "product/aws/guardduty"
   ]
 }
