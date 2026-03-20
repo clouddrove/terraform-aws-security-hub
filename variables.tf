@@ -53,7 +53,7 @@ variable "enabled_products" {
 variable "security_hub_enabled" {
   type        = bool
   default     = true
-  description = "To Enable seucirty-hub in aws account"
+  description = "To enable Security Hub in AWS account"
 }
 
 variable "member_details" {
