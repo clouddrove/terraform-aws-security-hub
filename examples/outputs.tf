@@ -4,4 +4,3 @@ output "id" {
   value       = module.security-hub.*.id
   description = "The ID of the secuirty hub."
 }
-

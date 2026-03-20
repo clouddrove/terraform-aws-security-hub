@@ -17,4 +17,3 @@
 | Name | Description |
 |------|-------------|
 | id | The ID of the secuirty hub. |
-
