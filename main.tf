@@ -4,12 +4,12 @@ data "aws_region" "security_hub" {}
 locals {
   enabled_standards_arns = var.enable ? toset([
     for standard in var.enabled_standards :
-    format("arn:%s:securityhub:%s::%s", data.aws_partition.security_hub.partition, length(regexall("ruleset", standard)) == 0 ? data.aws_region.security_hub.name : "", standard)
+    format("arn:%s:securityhub:%s::%s", data.aws_partition.security_hub.partition, length(regexall("ruleset", standard)) == 0 ? data.aws_region.security_hub.region : "", standard)
   ]) : []
 
   enabled_products_arns = var.enable ? toset([
     for product in var.enabled_products :
-    format("arn:%s:securityhub:%s::%s", data.aws_partition.security_hub.partition, length(regexall("ruleset", product)) == 0 ? data.aws_region.security_hub.name : "", product)
+    format("arn:%s:securityhub:%s::%s", data.aws_partition.security_hub.partition, length(regexall("ruleset", product)) == 0 ? data.aws_region.security_hub.region : "", product)
   ]) : []
 }
 
