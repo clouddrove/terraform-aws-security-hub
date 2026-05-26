@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master
+      - feat/fix-readme
     paths-ignore:
       - 'README.md'
       - 'docs/**'
